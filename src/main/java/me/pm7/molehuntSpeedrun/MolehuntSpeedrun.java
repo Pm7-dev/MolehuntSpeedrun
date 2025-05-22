@@ -5,6 +5,7 @@ import me.pm7.molehuntSpeedrun.Commands.startmolehunt;
 import me.pm7.molehuntSpeedrun.Listeners.BedBombPrevention;
 import me.pm7.molehuntSpeedrun.Listeners.ConnectionListener;
 import me.pm7.molehuntSpeedrun.Listeners.DeathListener;
+import me.pm7.molehuntSpeedrun.Listeners.JoinListener;
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -25,6 +26,7 @@ public final class MolehuntSpeedrun extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BedBombPrevention(), plugin);
         getServer().getPluginManager().registerEvents(new ConnectionListener(), plugin);
         getServer().getPluginManager().registerEvents(new DeathListener(), plugin);
+        getServer().getPluginManager().registerEvents(new JoinListener(plugin), plugin);
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();
