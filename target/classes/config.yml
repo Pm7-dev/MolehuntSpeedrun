@@ -1,3 +1,4 @@
 moles: 2
-borderSize: 2000
-spreadDistance: 1000
+borderSize: 750
+spreadDistance: 500
+irisMode: false

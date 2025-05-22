@@ -99,7 +99,11 @@ public class TrackerManager {
 
     private BaseComponent generateBar(TreeMap<Integer, Boolean> locations) {
         ComponentBuilder barBuilder = new ComponentBuilder();
-        barBuilder.color(ChatColor.of(new Color(78, 92, 36)));
+        if(plugin.getConfig().getBoolean("irisMode")) {
+            barBuilder.color(ChatColor.of(new Color(255, 255, 255))); // will look slightly worse
+        } else {
+            barBuilder.color(ChatColor.of(new Color(78, 92, 36)));
+        }
 
         // Generate the bar
         for(int i=0; i<BAR_SIZE; i++) {

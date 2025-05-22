@@ -3,7 +3,6 @@ package me.pm7.molehuntSpeedrun;
 import me.pm7.molehuntSpeedrun.Commands.resetmolehunt;
 import me.pm7.molehuntSpeedrun.Commands.startmolehunt;
 import me.pm7.molehuntSpeedrun.Listeners.BedBombPrevention;
-import me.pm7.molehuntSpeedrun.Listeners.ChatListener;
 import me.pm7.molehuntSpeedrun.Listeners.ConnectionListener;
 import me.pm7.molehuntSpeedrun.Listeners.DeathListener;
 import org.bukkit.World;
@@ -24,7 +23,6 @@ public final class MolehuntSpeedrun extends JavaPlugin {
         getCommand("startmolehunt").setExecutor(new startmolehunt());
         getCommand("resetmolehunt").setExecutor(new resetmolehunt());
         getServer().getPluginManager().registerEvents(new BedBombPrevention(), plugin);
-        getServer().getPluginManager().registerEvents(new ChatListener(), plugin);
         getServer().getPluginManager().registerEvents(new ConnectionListener(), plugin);
         getServer().getPluginManager().registerEvents(new DeathListener(), plugin);
 

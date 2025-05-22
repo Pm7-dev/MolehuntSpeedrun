@@ -70,17 +70,20 @@ public class startmolehunt implements CommandExecutor {
 
                     // Don't count your moles before they hatch
                     Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                        StringBuilder moles = new StringBuilder();
-                        for(int i=0; i<plugin.getMoles().size(); i++) {
-                            Player mole = Bukkit.getPlayer(plugin.getMoles().get(i));
-                            if(mole == null) continue;
+                        if(plugin.getMoles().size() > 1) {
+                            StringBuilder moles = new StringBuilder();
+                            for (int i = 0; i < plugin.getMoles().size(); i++) {
+                                Player mole = Bukkit.getPlayer(plugin.getMoles().get(i));
+                                if (mole == null) continue;
 
-                            if(i < plugin.getMoles().size() - 1) moles.append(" ").append(mole.getName()).append(",");
-                            else moles.append(" and ").append(mole.getName()).append(".");
-                        }
-                        for(Player plr : Bukkit.getOnlinePlayers()) {
-                            if(plugin.getMoles().contains(plr.getUniqueId())) {
-                                plr.sendMessage(ChatColor.RED + "Moles:" + moles);
+                                if (i < plugin.getMoles().size() - 1)
+                                    moles.append(" ").append(mole.getName()).append(",");
+                                else moles.append(" and ").append(mole.getName()).append(".");
+                            }
+                            for (Player plr : Bukkit.getOnlinePlayers()) {
+                                if (plugin.getMoles().contains(plr.getUniqueId())) {
+                                    plr.sendMessage(ChatColor.RED + "Moles:" + moles);
+                                }
                             }
                         }
 
