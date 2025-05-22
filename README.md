@@ -27,4 +27,8 @@ resource-pack-id=
 resource-pack-prompt=
 resource-pack-sha1=c64b781855d7011af72210535a317453e941db72
 ````
+
+Before starting, remember to add the empty end portal at the center of the world you are using. I probably could have 
+done this automatically, but I didn't want to.  
+
 To start the game, run `/startmolehunt` from an operator account. To reset the game when finished, run `/resetmolehunt`.
