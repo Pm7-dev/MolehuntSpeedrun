@@ -1,0 +1,11 @@
+name: MolehuntSpeedrun
+version: '1.0'
+main: me.pm7.molehuntSpeedrun.MolehuntSpeedrun
+api-version: '1.21'
+commands:
+  startmolehunt:
+    description: "Believe it or not, this starts the game"
+    usage: /<command>
+  resetmolehunt:
+    description: "This RESETs the game !!"
+    usage: /<command>
