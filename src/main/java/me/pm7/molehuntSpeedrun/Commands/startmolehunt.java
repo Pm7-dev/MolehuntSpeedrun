@@ -51,6 +51,8 @@ public class startmolehunt implements CommandExecutor {
         }
 
         Bukkit.broadcastMessage(ChatColor.RED + "Starting Molehunt Speedrun in 15 seconds.");
+        Bukkit.broadcastMessage(ChatColor.RED + " ");
+        Bukkit.broadcastMessage(ChatColor.GRAY + "" + ChatColor.ITALIC + "Remember to unbind your player list key!!");
 
         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
             // spread players

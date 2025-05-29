@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
@@ -23,6 +24,8 @@ public class JoinListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
+        e.setJoinMessage(null);
+
         e.getPlayer().setScoreboard(board);
         if(hiddenName == null) {
             hiddenName = board.registerNewTeam("HideNameTag");
@@ -47,5 +50,10 @@ public class JoinListener implements Listener {
         hiddenName.setAllowFriendlyFire(true);
         hiddenName.setCanSeeFriendlyInvisibles(false);
         hiddenName.setOption(Team.Option.NAME_TAG_VISIBILITY, Team.OptionStatus.NEVER);
+    }
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent e) {
+        e.setQuitMessage(null);
     }
 }
