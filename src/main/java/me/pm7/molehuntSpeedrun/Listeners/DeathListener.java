@@ -19,15 +19,15 @@ public class DeathListener implements Listener {
     @EventHandler
     public void onDamage(EntityDamageEvent e) {
         if(!(e.getEntity()instanceof Player p)) {
-            if(e.getEntity() instanceof EnderDragon enderDragon) {
-                if(enderDragon.getHealth() - e.getFinalDamage() > 0.0) return;
-
-                // Dragon has been killed, check for survivor win?
-                Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                    Bukkit.broadcastMessage(ChatColor.GREEN + "Survivors Win!");
-                    for(Player plr : Bukkit.getOnlinePlayers()) { plr.playSound(plr, Sound.BLOCK_NOTE_BLOCK_HAT, 500, 0.5f); }
-                }, 100L);
-            }
+//            if(e.getEntity() instanceof EnderDragon enderDragon) {
+//                if(enderDragon.getHealth() - e.getFinalDamage() > 0.0) return;
+//
+//                // Dragon has been killed, check for survivor win?
+//                Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
+//                    Bukkit.broadcastMessage(ChatColor.GREEN + "Survivors Win!");
+//                    for(Player plr : Bukkit.getOnlinePlayers()) { plr.playSound(plr, Sound.BLOCK_NOTE_BLOCK_HAT, 500, 0.5f); }
+//                }, 100L);
+//            }
             return;
         }
 
@@ -65,26 +65,6 @@ public class DeathListener implements Listener {
             if(plugin.getMoles().contains(plr.getUniqueId())) {
                 plr.sendMessage(ChatColor.RED + "[Mole Chat]: " + ChatColor.RESET + p.getName() + " has died!");
             }
-        }
-
-        // Check for player & mole win??
-        boolean moleWin = true;
-        boolean playerWin = true;
-        for(Player plr : Bukkit.getOnlinePlayers()) {
-            if(plugin.getMoles().contains(plr.getUniqueId())) playerWin = false;
-            else if(plr.getGameMode() != GameMode.SPECTATOR) moleWin = false;
-        }
-
-        if(moleWin) {
-            Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                Bukkit.broadcastMessage(ChatColor.RED + "Moles Win!");
-                for(Player plr : Bukkit.getOnlinePlayers()) { plr.playSound(plr, Sound.BLOCK_NOTE_BLOCK_HAT, 500, 0.5f); }
-            }, 100L);
-        } else if (playerWin) {
-            Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                Bukkit.broadcastMessage(ChatColor.GREEN + "Survivors Win!");
-                for(Player plr : Bukkit.getOnlinePlayers()) { plr.playSound(plr, Sound.BLOCK_NOTE_BLOCK_HAT, 500, 0.5f); }
-            }, 100L);
         }
     }
 }
