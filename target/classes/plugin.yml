@@ -9,3 +9,7 @@ commands:
   resetmolehunt:
     description: "This RESETs the game !!"
     usage: /<command>
+  starttimer:
+    description: "Starts the uhh... timer"
+    usage: /<command>
+

@@ -1,4 +1,6 @@
-moles: 2
+minMoles: 2
+maxMoles: 3
+preTime: 90
 borderSize: 750
 spreadDistance: 500
 irisMode: false

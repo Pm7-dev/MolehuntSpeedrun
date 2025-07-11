@@ -5,4 +5,5 @@ me\pm7\molehuntSpeedrun\Listeners\ConnectionListener.class
 me\pm7\molehuntSpeedrun\Listeners\BedBombPrevention.class
 me\pm7\molehuntSpeedrun\MolehuntSpeedrun.class
 me\pm7\molehuntSpeedrun\Commands\startmolehunt.class
+me\pm7\molehuntSpeedrun\Commands\starttimer.class
 me\pm7\molehuntSpeedrun\Listeners\DeathListener.class
