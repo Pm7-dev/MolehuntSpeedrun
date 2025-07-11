@@ -30,6 +30,7 @@ public final class MolehuntSpeedrun extends JavaPlugin {
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();
+        saveConfig();
 
         trackerManager = new TrackerManager();
     }

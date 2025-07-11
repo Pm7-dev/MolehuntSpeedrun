@@ -59,7 +59,10 @@ public class startmolehunt implements CommandExecutor {
             for(Player plr : Bukkit.getOnlinePlayers()) if(plr.getGameMode() != GameMode.SPECTATOR) spread(plr);
 
             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                for(int i=0; i<plugin.getConfig().getInt("moles"); i++) selectMole();
+
+                // Select number of moles
+                int moles = random.nextInt(plugin.getConfig().getInt("minMoles"), plugin.getConfig().getInt("maxMoles" + 1));
+                for(int i=0; i<moles; i++) selectMole();
                 for(Player plr : Bukkit.getOnlinePlayers()) plr.sendTitle("§e§lYou are...", "", 10, 70, 20);
 
                 Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
@@ -73,18 +76,18 @@ public class startmolehunt implements CommandExecutor {
                     // Don't count your moles before they hatch
                     Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                         if(plugin.getMoles().size() > 1) {
-                            StringBuilder moles = new StringBuilder();
+                            StringBuilder moleText = new StringBuilder();
                             for (int i = 0; i < plugin.getMoles().size(); i++) {
                                 Player mole = Bukkit.getPlayer(plugin.getMoles().get(i));
                                 if (mole == null) continue;
 
                                 if (i < plugin.getMoles().size() - 1)
-                                    moles.append(" ").append(mole.getName()).append(",");
-                                else moles.append(" and ").append(mole.getName()).append(".");
+                                    moleText.append(" ").append(mole.getName()).append(",");
+                                else moleText.append(" and ").append(mole.getName()).append(".");
                             }
                             for (Player plr : Bukkit.getOnlinePlayers()) {
                                 if (plugin.getMoles().contains(plr.getUniqueId())) {
-                                    plr.sendMessage(ChatColor.RED + "Moles:" + moles);
+                                    plr.sendMessage(ChatColor.RED + "Moles:" + moleText);
                                 }
                             }
                         }
