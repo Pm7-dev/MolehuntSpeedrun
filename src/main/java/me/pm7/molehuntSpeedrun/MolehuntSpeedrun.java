@@ -34,6 +34,34 @@ public final class MolehuntSpeedrun extends JavaPlugin {
         saveDefaultConfig();
         saveConfig();
 
+        /*
+        minMoles: 2
+        maxMoles: 3
+        preTime: 90
+        borderSize: 750
+        spreadDistance: 500
+        irisMode: false
+         */
+
+        if(!getConfig().contains("minMoles")) {
+            getConfig().set("minMoles", 2);
+        }
+        if(!getConfig().contains("maxMoles")) {
+            getConfig().set("maxMoles", 3);
+        }
+        if(!getConfig().contains("preTime")) {
+            getConfig().set("preTime", 90);
+        }
+        if(!getConfig().contains("borderSize")) {
+            getConfig().set("borderSize", 750);
+        }
+        if(!getConfig().contains("spreadDistance")) {
+            getConfig().set("spreadDistance", 500);
+        }
+        if(!getConfig().contains("irisMode")) {
+            getConfig().set("irisMode", false);
+        }
+
         trackerManager = new TrackerManager();
     }
 
