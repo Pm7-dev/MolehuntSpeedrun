@@ -61,7 +61,9 @@ public class startmolehunt implements CommandExecutor {
             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
 
                 // Select number of moles
-                int moles = random.nextInt(plugin.getConfig().getInt("minMoles"), plugin.getConfig().getInt("maxMoles" + 1));
+                int moles = random.nextInt(
+                        plugin.getConfig().getInt("maxMoles" + 1),
+                        plugin.getConfig().getInt("minMoles"));
                 for(int i=0; i<moles; i++) selectMole();
                 for(Player plr : Bukkit.getOnlinePlayers()) plr.sendTitle("§e§lYou are...", "", 10, 70, 20);
 
